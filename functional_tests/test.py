@@ -71,7 +71,7 @@ class NewVisitorTest(LiveServerTestCase):
 		self.assertNotIn('Сделать мушку', page_text)
 
 		inputbox = self.browser.find_element_by_id('id_new_item')
-		inputbox.send_keys('Купиить молоко')
+		inputbox.send_keys('Купить молоко')
 		inputbox.send_keys(Keys.ENTER)
 		self.wait_for_row_in_list_table('1: Купить молоко')
 
