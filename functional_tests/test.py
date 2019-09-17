@@ -84,7 +84,6 @@ class NewVisitorTest(LiveServerTestCase):
 		self.assertIn('Купить молоко', page_text)
 
 
-		self.fail('Закончить тест!')
 
 if __name__ == '__main__':
 	unittest.main()
