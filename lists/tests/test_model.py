@@ -1,3 +1,4 @@
+from django.core.exceptions import ValidationError
 from django.test import TestCase
 from lists.models import Item, List
 
@@ -5,8 +6,8 @@ from lists.models import Item, List
 # Create your tests here.
 
 
-class ListModelTest(TestCase):
-	'''тест модели элемента списка'''
+class ListAndItemModelTest(TestCase):
+	'''тест моделей списка и элемента списка'''
 	
 	def test_saving_and_retrieving_items(self):
 		'''тест сохранения и получения элементов списка'''
@@ -35,3 +36,10 @@ class ListModelTest(TestCase):
 		self.assertIn(second_saved_item.text, 'Item the second')
 		self.assertEqual(second_saved_item.list, list_)
 
+	def test_cannot_save_empty_list_items(self):
+		'''тест: нельзя добавить пустые элементы списка'''
+		list_ = List.objects.create()
+		item = Item(list=list_, text='')
+		with self.assertRaises(ValidationError):
+			item.save()
+			item.full_clean()
