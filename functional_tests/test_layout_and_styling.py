@@ -15,7 +15,7 @@ class LayoutAndStylingTest(FunctionalTest):
 		self.assertAlmostEqual(
 			inputbox.location['x'] + inputbox.size['width'] / 2,
 			512,
-			delta=25
+			delta=50
 		)
 		inputbox.send_keys('testing')
 		inputbox.send_keys(Keys.ENTER)
@@ -24,6 +24,6 @@ class LayoutAndStylingTest(FunctionalTest):
 		self.assertAlmostEqual(
 			inputbox.location['x'] + inputbox.size['width'] / 2,
 			512,
-			delta=25
+			delta=50
 		)
 
